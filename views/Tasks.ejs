@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task Manager</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/angular.min.js"></script>
+    <script type="text/javascript" src="javascripts/tasks.js"></script>
+</head>
+<body class="container" ng-app="taskApp"  >
+	<div ng-controller="taskController">
+		<div  ndclass="col-md-4 col-md-offset-4" style="border:1px solid black; margin-top:75px;  padding: 15px; background-color: white;border-radius:3%;">
+			<h1 class="text-center" style="font: italic">Tasks</h1>
+				<form class="form-group" >
+					<label class="text-danger">Task :</label>
+					<input class="form-control"type="text" placeholder="ex:meeting with colleagues at 5:30" ng-model="t1.task">
+					<br>
+          <label>Date:</label>
+          <input class="form-control" type="Date"  ng-model="t1.date">
+          <br>
+					<br>
+					<label>ScheduledTime:</label>
+					<input class="form-control" type="time" ng-model="t1.time">
+					<br>
+          
+					<button class="btn btn-primary" ng-click="settask(t1)">Addtask</button>
+					<!-- <button ng-click="signup(reg)" class="btn btn-info">Signup</button> -->
+				</form>
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<table class="table table-bordered" >
+      <thead>
+        <tr>
+          <!-- <th class="form-control">s.no</th> -->
+          <th>Task</th>
+          <th>date</th>
+          <th>time scheduled</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+      </thead>
+      <tbody >
+      	<div >
+      		<h3 class="text-center">Upcoming tasks</h3>
+      		<tr ng-repeat="task in data">
+      			<!-- <td>{{$index+1}}</td> -->
+          		<td>{{task.task}}</td>
+              <td>{{task.date}}</td>
+          		<td>{{task.time}}</td>
+          		<td><button class="btn btn-info">edit</button></td>
+              <td><button class="btn btn-danger">delete</button></td>
+      		</tr>   
+      	</div>
+
+      </tbody>
+  	</table>
+</body>
+</html>
